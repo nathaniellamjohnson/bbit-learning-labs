@@ -17,13 +17,16 @@ import sys
 
 from solution.consumer_sol import mqConsumer  # pylint: disable=import-error
 
-def main(sector: str, queueName: str) -> None:
+def main(sector: str, ticker:str, queueName: str) -> None:
     
     # Implement Logic to Create Binding Key from the ticker and sector variable -  Step 2
     #
     #                       WRITE CODE HERE!!!
     #
-    
+
+    # BINDING KEY IS IN FORM "Stock.<TICKER>.<SECTOR>"
+    bindingKey = "Stock." + ticker + "." + sector
+
     consumer = mqConsumer(binding_key=bindingKey,exchange_name="Tech Lab Topic Exchange",queue_name=queueName)    
     consumer.startConsuming()
     
@@ -36,4 +39,8 @@ if __name__ == "__main__":
     #                       WRITE CODE HERE!!!
     #
 
-    sys.exit(main(sector,queue))
+    sector = sys.argv[1]
+    ticker = sys.argv[2]
+    queue = sys.argv[3]
+
+    sys.exit(main(sector,ticker, queue))
