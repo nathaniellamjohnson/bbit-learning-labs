@@ -27,7 +27,7 @@ def main(sector: str, ticker:str, queueName: str) -> None:
     # BINDING KEY IS IN FORM "Stock.<TICKER>.<SECTOR>"
     bindingKey = "Stock." + ticker + "." + sector
 
-    consumer = mqConsumer(binding_key=bindingKey,exchange_name="Tech Lab Topic Exchange",queue_name=queueName)    
+    consumer = mqConsumer(binding_key=bindingKey,exchange_name="Tech Lab Queue",queue_name=queueName)
     consumer.startConsuming()
     
 

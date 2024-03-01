@@ -23,7 +23,7 @@ def main(ticker: str, price: float, sector: str) -> None:
     # Implement Logic to Create Routing Key from the ticker and sector variable -  Step 2
     routingKey = "Stock." + ticker + "." + sector
 
-    producer = mqProducer(routing_key=routingKey,exchange_name="Tech Lab Topic Exchange")
+    producer = mqProducer(routing_key=routingKey,exchange_name="Tech Lab Queue")
 
     # Implement Logic To Create a message variable from the variable EG. "TSLA price is now $500" - Step 3
     producer.setupRMQConnection()
